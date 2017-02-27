@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- <link rel="stylesheet" href="style.css"> -->
+	<style>
+		li.crossed {
+			text-decoration: line-through;
+		}
+	</style>
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+</head>
+<body ng-app="myApp">
+	
+	<section ng-controller="MainController">
+		<md-list>
+			<md-list-item class="md-2-line" ng-repeat="item in list track by $index" >
+				<md-checkbox ng-model="item.done"></md-checkbox>
+				<div class="md-list-item-text">
+					<h3>{{item.name}}</h3>
+					<p>{{item.description}}</p>
+				</div>
+			</md-list-item>
+		</md-list>
+	
+		<form ng-submit="addItem()">
+			<md-subheader>Add an item</md-subheader>
+			<md-input-container>
+				<label>Name</label>
+				<input type="text" ng-model="itemToAdd.name">
+			</md-input-container>
+			<md-input-container>
+				<label>Description</label>
+				<input type="text" ng-model="itemToAdd.description">
+			</md-input-container>
+			<input type="submit">
+		</form>
+	</section>
+
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+	<script type="text/javascript" src="./app.js"></script>
+</body>
+</html>
